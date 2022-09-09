@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>JavaScript Class Inheritance</h2>
+
+    <p> Gunakan kata kunci "extends" untuk mewarisi semua metode dari kelas lain. </p>
+    <p> Gunakan metode "super" untuk memanggil fungsi konstruktor induknya. </p>
+    <p id="shark"></p>
+    <p id="cat"></p>
+    <p id="dog"></p>
+
+    <script>
+        class Animal {
+        constructor(name, age, legs, species, status) {
+            this.name = name; 
+            this.age = age;
+            this.legs = legs;
+            this.species = species;
+            this.status = status;
+        }
+    introduce() {
+        return `Hello my name is ${this.name} and I am ${this.age} years old`;
+        // return  'nama' + this.name + 'umur ' + this.age + 'legs' + this.legs + 'spesies ' + this.species + status + this.status;
+    }
+}
+
+class Shark extends Animal {
+    constructor(name, age, status) {
+        super(); 
+        this.name = name;
+        this.age = age;
+        this.legs = 0;
+        this.status = status;
+        this.species = 'shark'    
+    }
+    show() {
+        return this.introduce( ) + ', my status '+ this.status;
+    }
+}
+
+class Cat extends Animal {
+    constructor(name, age, status) {
+      super();
+      this.name = name;
+      this.age = age;
+      this.status = status;
+      this.legs = 4;
+      this.species = 'cat';
+    }
+    show() {
+      return this.introduce( ) + ', my status '+ this.status;
+    }
+  }
+
+  class Dog extends Animal {
+    constructor(master,name, age, status) {
+      super();
+      this.master = master;
+      this.name = name;
+      this.age = age;
+      this.status = status;
+      this.legs = 4;
+      this.species = 'dog';
+    }
+    show() {
+        return this.introduce( ) + ', my status '+ this.status;
+    }
+    greetMaster() {
+      return `Hello my master is ${this.master}`
+    }
+  }
+        let myShark = new Shark("Hiuu", "20", "Berenang");
+        document.getElementById("shark").innerHTML = myShark.show();
+
+        let myCat = new Shark("Catt", "13", "Walking");
+        document.getElementById("cat").innerHTML = myCat.show();
+
+        let myDog = new Dog("John");
+        document.getElementById("dog").innerHTML = myDog.greetMaster();
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Ship</title>
+</head>
+<body>
+    <p>Ship</p>
+    <span>Draf: </span>
+    <input id="draft" type="number" placeholder="Draf" value="23"><br>
+    <span>Crew: </span>
+    <input id="crew" type="number" placeholder="Crew" value="20"><br><br>
+    <button onclick="Ship(document.getElementById('draft').value,document.getElementById('crew').value)">Submit</button>
+</body>
+
+<script type="text/javascript">
+
+    var emptyShip = new Ship(draft, crew);
+    
+    function Ship(draft, crew) {
+        this.draft = draft;
+        this.crew = crew;
+
+        crew = crew * 1.5;
+
+        if (draft >= 20 && crew >= 20) {
+            console.log("Banyak nih muatan kapalnya");
+        } else if (draft < 20 && crew < 20) {
+            console.log("Lebih banyak muatan orangnya..")
+        } 
+    }
+
+</script>
+</html>
